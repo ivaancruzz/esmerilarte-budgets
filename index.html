@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esmerilarte</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/switch.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+</head>
+<body>
+    <div class="container">
+        <!--SECCION LOGO-->
+        <div class="row justify-content-center">
+            <img src="images/logo.png" alt="" style="width: 200px;">
+        </div>
+        <div id="inputs" class="row justify-content-center ">
+            <div class="col-12 p-0 text-center">
+                <div class="row">
+                    <div id="text-ml" class="col-5 text-left"></div>
+                    <div class="col-2">
+                        <label class="switch">
+                            <input type="checkbox" onchange="cambiarM2()">
+                            <span class="slider round"></span>
+                        </label>  
+                    </div>
+                    <div id="text-m2" class="col-5 text-right"></div>
+                </div>                
+            </div>
+            <div class="col-12 p-0 mb-3"><input required id="ancho" onchange="mostrarValores()" type="number" class="form-control form-control-lg" placeholder="Ancho"></div>
+            <div class="col-12 p-0 mb-3"><input required id="largo" onchange="mostrarValores()" type="number" class="form-control form-control-lg" placeholder="Largo"></div>
+            <div id="interfaces" class="col-8 p-0">
+                <h6><span id="unidad_medida" class="badge badge-success">Presupuesto por <b>metro lineal</b></span> </h6>
+            </div>
+            <div class="col-4 p-0">
+                
+                <div class="row">
+                    <div class="col-12">
+                        <button type="button" class="btn btn-success w-100" onclick="btn_add_panio()">Agregar</button>
+                        <p id="notificacion"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="row p-3 justify-content-center">
+            <div class="col-12 ">
+                
+                <button id="presupuesto" type="button" class="btn btn-success btn-lg w-100" data-toggle="modal" data-target="#myModal">Ver presupuesto</button>
+            </div>
+        </footer>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+            
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <div class="col-10">
+                        <h4 class="modal-title">Presupuesto</h4>
+
+                    </div>
+                    <div class="col-2">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                </div>
+                <div class="modal-body" id="modal_dibujo">
+                    <div class="row">
+                       <div class="col-12">
+                           <input id="nombre" type="text" class="form-control form-control-sm" placeholder="Nombre" required>
+                       </div>
+                        <div class="col-12">
+                            <table class="table table-responsive-sm">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Paño</th>
+                                    <th scope="col">Medida</th>
+                                    <th scope="col">Valor</th>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col">Material</th>
+                                    <th scope="col">Acción</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="info_panios">
+                                    <tr>
+                                        <th scope="row">Total: </th>
+                                        <td colspan="5" id="total">$0.0</td>
+                                    </tr>
+                                </tbody>
+                              </table>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="modal-footer">
+                
+                <button onclick="btn_ver_presupuesto()" type="button" class="btn btn-default" data-dismiss="modal">Ver presupuesto</button>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="js/esmerilarte.js"></script>
+    <script src="js/jspdf.min.js"></script>
+    <script src="js/jspdf.plugin.autotable.js"></script>
+    <script src="js/base64.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+
+html, body{
+    background-color: #f5de4d !important;
+    height: 100%;
+
+    
+    
+}
+
+.container{
+    max-width: 90%;
+    height: 100vh !important;
+    max-height: 100vh !important;
+}
+
+.centrar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
